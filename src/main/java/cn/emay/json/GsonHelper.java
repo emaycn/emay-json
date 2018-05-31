@@ -68,7 +68,7 @@ public class GsonHelper {
 	 *            是否需要空字段
 	 * @return
 	 */
-	public static GsonBuilder getGsonBuilder(String datePattern, boolean isDisableHtmlEscaping, boolean isWithNulls) {
+	protected static GsonBuilder getGsonBuilder(String datePattern, boolean isDisableHtmlEscaping, boolean isWithNulls) {
 		GsonBuilder builder = getGsonBuilder();
 		if (isDisableHtmlEscaping) {
 			builder.disableHtmlEscaping();

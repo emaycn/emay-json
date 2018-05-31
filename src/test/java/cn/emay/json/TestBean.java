@@ -5,9 +5,6 @@ import java.util.Date;
 
 public class TestBean implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	private String name;
