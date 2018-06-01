@@ -14,7 +14,7 @@ public class TestBean implements Serializable {
 	private Boolean student;
 
 	private Double height;
-	
+
 	private Date birth;
 
 	public String getName() {
