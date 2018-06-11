@@ -1,5 +1,8 @@
 package cn.emay.json;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -18,7 +21,7 @@ public class GsonHelper {
 	 * 锁对象
 	 */
 	private final static Object LOCK = new Object();
-
+	
 	/**
 	 * 默认日期格式
 	 */
@@ -54,7 +57,26 @@ public class GsonHelper {
 	 * @return
 	 */
 	public static GsonBuilder getGsonBuilder() {
-		return new GsonBuilder();
+		return getGsonBuilder(DEFAULT_DATE_PATTERN);
+	}
+
+	/**
+	 * 获取Gson构造器
+	 * 
+	 * @param datePattern
+	 *            日期格式
+	 * @return
+	 */
+	public static GsonBuilder getGsonBuilder(String datePattern) {
+		final String newDatePattern = datePattern == null ? DEFAULT_DATE_PATTERN : datePattern;
+		GsonBuilder gb = new GsonBuilder();
+		gb.registerTypeAdapter(LocalDateTime.class, CustomJsonSerializers.getLocalDateTimeJsonSerializer(newDatePattern));
+		gb.registerTypeAdapter(LocalDateTime.class, CustomJsonSerializers.getLocalDateTimeJsonDeserializer(newDatePattern));
+		gb.registerTypeAdapter(LocalDate.class, CustomJsonSerializers.getLocalDateJsonSerializer(newDatePattern));
+		gb.registerTypeAdapter(LocalDate.class, CustomJsonSerializers.getLocalDateJsonDeserializer(newDatePattern));
+		gb.registerTypeAdapter(LocalTime.class, CustomJsonSerializers.getLocalTimeJsonSerializer(newDatePattern));
+		gb.registerTypeAdapter(LocalTime.class, CustomJsonSerializers.getLocalTimeJsonDeserializer(newDatePattern));
+		return gb;
 	}
 
 	/**
