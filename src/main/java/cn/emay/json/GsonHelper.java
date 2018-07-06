@@ -21,7 +21,7 @@ public class GsonHelper {
 	 * 锁对象
 	 */
 	private final static Object LOCK = new Object();
-	
+
 	/**
 	 * 默认日期格式
 	 */
