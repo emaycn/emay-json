@@ -8,22 +8,30 @@ import org.junit.Test;
 
 import com.google.gson.reflect.TypeToken;
 
-public class TestJsonHelper {
+import cn.emay.json.bean.Bean;
+import cn.emay.json.bean.BeanToken;
 
-	private TestBean bean;
+/**
+ * 
+ * @author Frank
+ *
+ */
+public class JsonHelperTest {
 
-	private TestTokenBean<TestBean> tokenBean;
+	private Bean bean;
+
+	private BeanToken<Bean> tokenBean;
 
 	@Before
 	public void before() {
-		bean = new TestBean();
+		bean = new Bean();
 		bean.setAge(1);
 		bean.setHeight(1.78d);
 		bean.setName("jack");
 		bean.setStudent(true);
 		bean.setBirth(new Date());
 
-		tokenBean = new TestTokenBean<>();
+		tokenBean = new BeanToken<>();
 		tokenBean.setLove(bean);
 		tokenBean.setAge(2);
 		tokenBean.setHeight(2.78d);
@@ -36,10 +44,10 @@ public class TestJsonHelper {
 	public void testDefault() {
 
 		String jsonString = JsonHelper.toJsonString(bean);
-		TestBean bean1 = JsonHelper.fromJson(TestBean.class, jsonString);
+		Bean bean1 = JsonHelper.fromJson(Bean.class, jsonString);
 
 		String jsonString1 = JsonHelper.toJsonStringWithoutNull(bean);
-		TestBean bean2 = JsonHelper.fromJson(TestBean.class, jsonString1);
+		Bean bean2 = JsonHelper.fromJson(Bean.class, jsonString1);
 
 		Assert.assertEquals(bean.getName(), bean1.getName());
 		Assert.assertEquals(bean.getAge(), bean1.getAge());
@@ -59,10 +67,10 @@ public class TestJsonHelper {
 	public void testDatePattern() {
 
 		String jsonString = JsonHelper.toJsonString(bean, "yyyyMMddHHmmssSSS");
-		TestBean bean1 = JsonHelper.fromJson(TestBean.class, jsonString, "yyyyMMddHHmmssSSS");
+		Bean bean1 = JsonHelper.fromJson(Bean.class, jsonString, "yyyyMMddHHmmssSSS");
 
 		String jsonString1 = JsonHelper.toJsonStringWithoutNull(bean, "yyyyMMddHHmmssSSS");
-		TestBean bean2 = JsonHelper.fromJson(TestBean.class, jsonString1, "yyyyMMddHHmmssSSS");
+		Bean bean2 = JsonHelper.fromJson(Bean.class, jsonString1, "yyyyMMddHHmmssSSS");
 
 		Assert.assertEquals(bean.getName(), bean1.getName());
 		Assert.assertEquals(bean.getAge(), bean1.getAge());
@@ -82,11 +90,11 @@ public class TestJsonHelper {
 	public void testToken() {
 
 		String jsonString = JsonHelper.toJsonString(tokenBean);
-		TestTokenBean<TestBean> bean1 = JsonHelper.fromJson(new TypeToken<TestTokenBean<TestBean>>() {
+		BeanToken<Bean> bean1 = JsonHelper.fromJson(new TypeToken<BeanToken<Bean>>() {
 		}, jsonString);
 
 		String jsonString1 = JsonHelper.toJsonStringWithoutNull(tokenBean);
-		TestTokenBean<TestBean> bean2 = JsonHelper.fromJson(new TypeToken<TestTokenBean<TestBean>>() {
+		BeanToken<Bean> bean2 = JsonHelper.fromJson(new TypeToken<BeanToken<Bean>>() {
 		}, jsonString1);
 
 		Assert.assertEquals(tokenBean.getName(), bean1.getName());
@@ -118,11 +126,11 @@ public class TestJsonHelper {
 	@Test()
 	public void testDatePatternToken() {
 		String jsonString = JsonHelper.toJsonString(tokenBean, "yyyyMMddHHmmssSSS");
-		TestTokenBean<TestBean> bean1 = JsonHelper.fromJson(new TypeToken<TestTokenBean<TestBean>>() {
+		BeanToken<Bean> bean1 = JsonHelper.fromJson(new TypeToken<BeanToken<Bean>>() {
 		}, jsonString, "yyyyMMddHHmmssSSS");
 
 		String jsonString1 = JsonHelper.toJsonStringWithoutNull(tokenBean, "yyyyMMddHHmmssSSS");
-		TestTokenBean<TestBean> bean2 = JsonHelper.fromJson(new TypeToken<TestTokenBean<TestBean>>() {
+		BeanToken<Bean> bean2 = JsonHelper.fromJson(new TypeToken<BeanToken<Bean>>() {
 		}, jsonString1, "yyyyMMddHHmmssSSS");
 
 		Assert.assertEquals(tokenBean.getName(), bean1.getName());

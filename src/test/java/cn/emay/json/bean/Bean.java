@@ -1,9 +1,14 @@
-package cn.emay.json;
+package cn.emay.json.bean;
 
 import java.io.Serializable;
 import java.util.Date;
 
-public class TestBean implements Serializable {
+/**
+ * 
+ * @author Frank
+ *
+ */
+public class Bean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 

@@ -37,8 +37,9 @@ public class JsonServletSupport {
 			throw new RuntimeException(e);
 		} finally {
 			try {
-				if (out != null)
+				if (out != null) {
 					out.close();
+				}
 			} catch (Exception e) {
 				throw new RuntimeException(e);
 			}

@@ -7,7 +7,14 @@ import org.junit.Test;
 
 import com.google.gson.Gson;
 
-public class TestGsonHelper {
+import cn.emay.json.bean.Bean;
+
+/**
+ * 
+ * @author Frank
+ *
+ */
+public class GsonHelperTest {
 
 	Gson gson0 = GsonHelper.getGson();
 	Gson gson1 = GsonHelper.getGson(GsonHelper.DEFAULT_DATE_PATTERN);
@@ -52,7 +59,7 @@ public class TestGsonHelper {
 	@Test()
 	public void testGson() {
 
-		TestBean bean = new TestBean();
+		Bean bean = new Bean();
 		bean.setAge(1);
 		bean.setHeight(1.78d);
 		bean.setName("jack");
@@ -61,7 +68,7 @@ public class TestGsonHelper {
 
 		String json = gson0.toJson(bean);
 
-		TestBean bean1 = gson0.fromJson(json, TestBean.class);
+		Bean bean1 = gson0.fromJson(json, Bean.class);
 
 		Assert.assertEquals(bean.getName(), bean1.getName());
 		Assert.assertEquals(bean.getAge(), bean1.getAge());

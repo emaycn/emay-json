@@ -10,7 +10,12 @@ import java.time.format.DateTimeFormatter;
 
 import org.junit.Test;
 
-public class TestJava8LocalDateTime {
+/**
+ * 
+ * @author Frank
+ *
+ */
+public class Java8LocalDateTimeTest {
 
 	@Test
 	public void test() {
