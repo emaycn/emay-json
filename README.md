@@ -1,4 +1,4 @@
-# 亿美JAVA组件：Json组件
+# Json组件
 
 支持Java8 LocalTime/LocalDateTime/LocalDate
 
