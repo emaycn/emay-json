@@ -46,7 +46,7 @@ public class JsonHelperTest {
 		String jsonString = JsonHelper.toJsonString(bean);
 		Bean bean1 = JsonHelper.fromJson(Bean.class, jsonString);
 
-		String jsonString1 = JsonHelper.toJsonStringWithoutNull(bean);
+		String jsonString1 = JsonHelper.toJsonStringWithoutNullAndSSS(bean);
 		Bean bean2 = JsonHelper.fromJson(Bean.class, jsonString1);
 
 		Assert.assertEquals(bean.getName(), bean1.getName());
@@ -93,7 +93,7 @@ public class JsonHelperTest {
 		BeanToken<Bean> bean1 = JsonHelper.fromJson(new TypeToken<BeanToken<Bean>>() {
 		}, jsonString);
 
-		String jsonString1 = JsonHelper.toJsonStringWithoutNull(tokenBean);
+		String jsonString1 = JsonHelper.toJsonStringWithoutNullAndSSS(tokenBean);
 		BeanToken<Bean> bean2 = JsonHelper.fromJson(new TypeToken<BeanToken<Bean>>() {
 		}, jsonString1);
 

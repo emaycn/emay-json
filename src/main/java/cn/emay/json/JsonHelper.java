@@ -23,7 +23,7 @@ public class JsonHelper {
 		}
 		return GsonHelper.getGson().toJson(obj);
 	}
-
+	
 	/**
 	 * 转换对象为Json【排除空值字段】
 	 * 
@@ -68,6 +68,20 @@ public class JsonHelper {
 			return null;
 		}
 		return GsonHelper.getGsonWithoutNull(datePattern).toJson(obj);
+	}
+	
+	/**
+	 * 转换对象为Json【排除空值字段】【时间转换到毫秒数】
+	 * 
+	 * @param obj
+	 *            对象
+	 * @return
+	 */
+	public static String toJsonStringWithoutNullAndSSS(Object obj) {
+		if (obj == null) {
+			return null;
+		}
+		return GsonHelper.getGsonWithoutNull(GsonHelper.DATE_PATTERN_MILL).toJson(obj);
 	}
 
 	/**

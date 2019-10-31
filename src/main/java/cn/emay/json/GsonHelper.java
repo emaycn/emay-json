@@ -26,6 +26,11 @@ public class GsonHelper {
 	 * 默认日期格式
 	 */
 	public final static String DEFAULT_DATE_PATTERN = "yyyy-MM-dd HH:mm:ss";
+	
+	/**
+	 * 到毫秒的日期格式
+	 */
+	public final static String DATE_PATTERN_MILL = "yyyy-MM-dd HH:mm:ss SSS";
 
 	/**
 	 * 默认Gson构造参数Key
