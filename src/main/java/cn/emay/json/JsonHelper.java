@@ -151,5 +151,33 @@ public class JsonHelper {
 		}
 		return GsonHelper.getGson(datePattern).fromJson(jsonString, token.getType());
 	}
+	
+	/**
+	 * 转换对象为Json【排除空值字段】【时间转换到毫秒数】
+	 * 
+	 * @param obj
+	 *            对象
+	 * @return
+	 */
+	public static <T> T fromJsonBySSS(Class<T> clazz, String jsonString) {
+		if (jsonString == null) {
+			return null;
+		}
+		return GsonHelper.getGson(GsonHelper.DATE_PATTERN_MILL).fromJson(jsonString, clazz);
+	}
+	
+	/**
+	 * 转换对象为Json【排除空值字段】【时间转换到毫秒数】
+	 * 
+	 * @param obj
+	 *            对象
+	 * @return
+	 */
+	public static <T> T fromJsonBySSS(TypeToken<T> token, String jsonString) {
+		if (jsonString == null) {
+			return null;
+		}
+		return GsonHelper.getGson(GsonHelper.DATE_PATTERN_MILL).fromJson(jsonString, token.getType());
+	}
 
 }
