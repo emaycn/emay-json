@@ -35,11 +35,6 @@ public class GsonHelperTest {
 	Gson gson8 = GsonHelper.getGson(GsonHelper.DEFAULT_DATE_PATTERN, false, false);
 
 	@Test()
-	public void testGsonSize() {
-		Assert.assertEquals(GsonHelper.getAllGsons().size(), 6);
-	}
-
-	@Test()
 	public void testGsonObj() {
 
 		Assert.assertEquals(gson0, gson1);
