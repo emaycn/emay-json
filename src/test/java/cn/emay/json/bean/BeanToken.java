@@ -3,22 +3,20 @@ package cn.emay.json.bean;
 import java.io.Serializable;
 
 /**
- * 
  * @author Frank
- *
  */
-public class BeanToken<T extends Object> extends Bean implements Serializable {
+public class BeanToken<T> extends Bean implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	private T love;
+    private T love;
 
-	public T getLove() {
-		return love;
-	}
+    public T getLove() {
+        return love;
+    }
 
-	public void setLove(T love) {
-		this.love = love;
-	}
+    public void setLove(T love) {
+        this.love = love;
+    }
 
 }

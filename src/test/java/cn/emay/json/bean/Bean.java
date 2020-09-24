@@ -4,66 +4,60 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * 
  * @author Frank
- *
  */
 public class Bean implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	private String name;
+    private String name;
 
-	private Integer age;
+    private Integer age;
 
-	private Boolean student;
+    private Boolean student;
 
-	private Double height;
+    private Double height;
 
-	private Date birth;
+    private Date birth;
 
-	public String getName() {
-		return name;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public Integer getAge() {
-		return age;
-	}
+    public Integer getAge() {
+        return age;
+    }
 
-	public void setAge(Integer age) {
-		this.age = age;
-	}
+    public void setAge(Integer age) {
+        this.age = age;
+    }
 
-	public Boolean getStudent() {
-		return student;
-	}
+    public Boolean getStudent() {
+        return student;
+    }
 
-	public void setStudent(Boolean student) {
-		this.student = student;
-	}
+    public void setStudent(Boolean student) {
+        this.student = student;
+    }
 
-	public Double getHeight() {
-		return height;
-	}
+    public Double getHeight() {
+        return height;
+    }
 
-	public void setHeight(Double height) {
-		this.height = height;
-	}
+    public void setHeight(Double height) {
+        this.height = height;
+    }
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
+    public Date getBirth() {
+        return birth;
+    }
 
-	public Date getBirth() {
-		return birth;
-	}
-
-	public void setBirth(Date birth) {
-		this.birth = birth;
-	}
+    public void setBirth(Date birth) {
+        this.birth = birth;
+    }
 
 }
